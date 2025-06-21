@@ -1,0 +1,46 @@
+
+1. How do you insert a single document into a MongoDB collection?
+
+Use the insertOne() method:
+db.collectionName.insertOne({
+  name: "Alice",
+  age: 25,
+  city: "Delhi"
+});
+..............................................................................
+2. How do you insert multiple documents at once?
+
+Use the insertMany() method:
+db.collectionName.insertMany([
+  { name: "Bob", age: 30, city: "Mumbai" },
+  { name: "Charlie", age: 22, city: "Pune" },
+  { name: "Diana", age: 28, city: "Kolkata" }
+]);
+..............................................................................
+3. How do you find all documents in a collection?
+
+Use the find() method with an empty query:
+db.collectionName.find({});
+..............................................................................
+4. How do you find documents where a field equals a specific value?
+
+Specify the field and value in the query:
+db.collectionName.find({ city: "Delhi" });
+..............................................................................
+5. How do you find documents where a numeric field is greater than a value?
+
+Use the $gt (greater than) operator:
+db.collectionName.find({ age: { $gt: 25 } });
+..............................................................................
+6. How do you find documents where a numeric field is less than a value?
+
+Use the $lt (less than) operator:
+db.collectionName.find({ age: { $lt: 25 } });
+..............................................................................
+7. How do you find documents with multiple conditions (AND)?
+
+Just provide multiple fields in the query — MongoDB applies an AND by default:
+db.collectionName.find({
+  age: { $gt: 25 },
+  city: "Mumbai"
+});
